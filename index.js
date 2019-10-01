@@ -10,7 +10,7 @@ let server = http.createServer(function(req,res){
     
     let service = url[1]
     req.url = '/' + ((url.slice((url.length-2)).join('/')))
-    if(url[3] === "byLender" || url[3] === "deposit" || url[3] === "withdraw" || url[3] === "bidding"){
+    if(url[3] === "byLender" || url[3] === "deposit" || url[3] === "withdraw" || url[3] === "bidding" || url[3] === "sudah-ditebus-dan-transfer" || url[3] === "sudah-ditebus"){
         req.url = '/' + ((url.slice((url.length-3)).join('/')))
     }
     if(url[(url.length-1)].indexOf('?') !== -1){
