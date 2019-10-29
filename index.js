@@ -10,13 +10,14 @@ let server = http.createServer(function(req,res){
     
     let service = url[1]
     req.url = '/' + ((url.slice((url.length-2)).join('/')))
-    if(url[3] === "byLender" || url[3] === "deposit" || url[3] === "withdraw" || url[3] === "bidding" || url[3] === "sudah-ditebus-dan-transfer" || url[3] === "sudah-ditebus" || url[3] === "approve" ||  url[3] === "dibeli-agen" || url[3] === "diambil"){
+    if(url[3] === "byLender" || url[3] === "deposit" || url[3] === "withdraw" || url[3] === "bidding" || url[3] === "sudah-ditebus-dan-transfer" || url[3] === "sudah-ditebus" || url[3] === "approve" ||  url[3] === "dibeli-agen" || url[3] === "diambil" || url[3] === "byAgen" ){
         req.url = '/' + ((url.slice((url.length-3)).join('/')))
     }
     if(url[(url.length-1)].indexOf('?') !== -1){
         console.log('ada query di proxy server');
         console.log(url[url.length-1].slice(0,url[url.length-1].indexOf('?')))
-        req.url = url[url.length-1].slice(0,url[url.length-1].indexOf('?')) + '/' + url[url.length-1].slice(url[url.length-1].indexOf('?'))
+        // req.url = url[url.length-1].slice(0,url[url.length-1].indexOf('?')) + '?' + url[url.length-1].slice(url[url.length-1].indexOf('?'))
+        // req.url = url[url.length-1].slice(0,url[url.length-1].indexOf('?')) + url[url.length-1].slice(url[url.length-1].indexOf('?'))        
     }
     // if(service === 'transaction'){
     //     req.url = '/' + ((url.slice((url.length-1)).join('/')))
